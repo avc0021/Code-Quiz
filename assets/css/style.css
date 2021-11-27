@@ -1,8 +1,14 @@
-*, *::before, *::after {
+* {
     box-sizing: border-box;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+
 }
 
+header {
+    position:absolute;
+    top:0;
+    right:0;
+}
 body{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: flex;

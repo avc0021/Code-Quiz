@@ -36,7 +36,7 @@ function showQuestion(question) {
         }
         button.addEventListener('click', selectAnswer)
         answerButtonsElement.append
-         )
+         
 }
 
 function selectAnswer(e){
