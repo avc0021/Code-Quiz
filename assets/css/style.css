@@ -6,8 +6,9 @@
 
 header {
     position:absolute;
-    top:0;
-    right:0;
+    top: 0;
+    right: 0;
+    
 }
 body{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -26,8 +27,9 @@ body{
 
 .btn {
     background-color: #67166e;
+    border-color: #be20cc98;
     color: white;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 5px 10px; 
 
 }
@@ -41,7 +43,8 @@ body{
 
 .btn:hover { 
     border-color: black;
-    border-radius: 10px;
+    border-radius: 11px;
+    color:black;
 }
 
 .start-btn {
@@ -63,6 +66,6 @@ body{
     font-weight: bold;
 }
 
-.hide {
+.hide, .time-text, .time-sec {
     display: none;
 }

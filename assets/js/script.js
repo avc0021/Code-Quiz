@@ -1,7 +1,9 @@
 const startButton = document.getElementById('start-btn')
 const quizTitle = document.getElementById('quiz-title')
+const timeLeft = document.getElementById('time-left')
+const seconds = document.getElementById('seconds')
 const questionContainerElement = document.getElementById('question-container')
-const questionElemnt = document.getElementById('question')
+const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById ('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
@@ -16,18 +18,21 @@ function startGame() {
     shuffledQuestions = questions.sort(() => Math.random() -.5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
+    timeLeft.classList.remove('hide')
+    seconds.classList.remove('hide')
     setNextQuestion()
 }
 
 
 //Questions
 function setNextQuestion(){
+    resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
 function showQuestion(question) {
     questionContainerElement.innerText = question.question
-    question.answers.forEach(answer =>
+    question.answers.forEach(answer => {
         const button = document.createElement('button')
         button.innertext = answer.text
         button.classList.add('btn')
@@ -35,9 +40,10 @@ function showQuestion(question) {
            button.dataset.correct = answer.correct 
         }
         button.addEventListener('click', selectAnswer)
-        answerButtonsElement.append
-         
+        answerButtonsElement.appendChild(button)
+    })
 }
+
 
 function selectAnswer(e){
 
@@ -55,7 +61,7 @@ const questions = [
 
         ]
 
-    }
+    },
     {
         question:'Select the option that best describes a variable.',
         answer: [
@@ -66,7 +72,7 @@ const questions = [
 
         ]
 
-    }
+    },
     {
         question:'Which of the following selections are NOT a data type?',
         answer: [
@@ -77,7 +83,7 @@ const questions = [
 
         ]
 
-    }
+    },
     {
         question:'When referencing a house, a web devloper may consider HTML as the foundation/frame and CSS as the design. What would a web devloper consider Javascript? ',
         answer: [
@@ -88,7 +94,7 @@ const questions = [
 
         ]
 
-    }
+    },
     {
         question:'Which one of the following selections best describe setInterval?',
         answer: [
