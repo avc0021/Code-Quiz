@@ -1,8 +1,9 @@
 const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('-btn')
+const nextButton = document.getElementById('next-btn')
 const quizTitle = document.getElementById('quiz-title')
 const timeLeft = document.getElementById('time-left')
-const seconds = document.getElementById('seconds')
+let seconds = document.getElementById('seconds')
+let quizEnd = document.getElementById('game-over')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById ('answer-buttons')
@@ -11,16 +12,31 @@ let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click',startGame)
 
+function countDown() {
+    i = i - 1;
+    if (i < 50) {
+        timeLeft.innerHTML= i;
+    } 
+    if (i < 1) {
+        window.clearInterval(update);
+        quizEnd.classList.remove('hide');
+    }
+}
+update = setInterval("countDown()",1000)
 
 //Start quiz and remove title/start button
 function startGame() {
+    i = 50;
     startButton.classList.add('hide')
     quizTitle.classList.add('hide')
+    quizEnd.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() -.5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
     timeLeft.classList.remove('hide')
     seconds.classList.remove('hide')
+    
+    countDown()
     setNextQuestion()
 }
 

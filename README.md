@@ -1,7 +1,7 @@
 # Code-Quiz
 
 ## Purpose
-This quiz will help new web developers gauge thier knowledge level on JavaScript. 
+This quiz will help new web developers gauge thier knowledge level on JavaScript.
 
 ## Built With
 * HTML
