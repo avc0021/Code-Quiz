@@ -7,11 +7,13 @@ let quizEnd = document.getElementById('game-over')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById ('answer-buttons')
+i = 50;
 
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click',startGame)
 
+// Timer starts at 50secs
 function countDown() {
     i = i - 1;
     if (i < 50) {
@@ -24,30 +26,29 @@ function countDown() {
 }
 update = setInterval("countDown()",1000)
 
-//Start quiz and remove title/start button
+//Starts quiz and remove title/start button and begin timer
 function startGame() {
-    i = 50;
     startButton.classList.add('hide')
     quizTitle.classList.add('hide')
     quizEnd.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() -.5)
     currentQuestionIndex = 0
-    questionContainerElement.classList.remove('hide')
+    
     timeLeft.classList.remove('hide')
     seconds.classList.remove('hide')
+    questionContainerElement.classList.remove('hide')
     
     countDown()
     setNextQuestion()
 }
 
-
-//Questions
+// Moves to next question
 function setNextQuestion(){
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
-
+// Presents the question after clicking start
 function showQuestion(question) {
     questionContainerElement.innerText = question.question
     question.answers.forEach(answer => {
@@ -69,12 +70,12 @@ function resetState() {
         (answerButtonsElement.firstChild)
     }
 }
-
-function selectAnswer(e){
-
+// Selected answer presents Wrong / Correct text
+function selectAnswer(){
 
 }
 
+// Questions for quiz
 const questions = [
     {
         question:'Conditional Statements must include which of the following?',
