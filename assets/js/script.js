@@ -1,4 +1,5 @@
 const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('-btn')
 const quizTitle = document.getElementById('quiz-title')
 const timeLeft = document.getElementById('time-left')
 const seconds = document.getElementById('seconds')
@@ -30,6 +31,7 @@ function setNextQuestion(){
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
+
 function showQuestion(question) {
     questionContainerElement.innerText = question.question
     question.answers.forEach(answer => {
@@ -44,6 +46,13 @@ function showQuestion(question) {
     })
 }
 
+function resetState() {
+    nextButton.classList.add('hide')
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild
+        (answerButtonsElement.firstChild)
+    }
+}
 
 function selectAnswer(e){
 
